@@ -1,0 +1,319 @@
+{% extends "material/base.html" %}
+{% block content %}
+<div class="showcase container purple lighten-3">
+    <div class="row">
+        <div class="col 12 m10 offset-ml center">
+            <h2>Diagnosing Chronic Kidney Disease (CKD) </h2>
+            <p>ML Web App</p>
+            <a href="{{url_for('login')}}" class="btn btn-small purple white-text waves-effect waves-dark">Reset</a>
+			<a href="http://127.0.0.1:5000/pythonlogin/preview" class="btn btn-small purple white-text waves-effect waves-dark">Accuracy</a>
+            
+        </div>
+
+    </div>
+</div>
+<section class="section section-signup">
+        <div class="container">
+          <div class="row">
+           
+            <div class="col s12 m4">
+              <div class="card-panel grey lighten-4 grey-text text-darken-4 z-depth-0">
+                <form action="{{url_for('analyze')}}" method="POST">
+                  
+                   <div class="input-field">
+                   <p class="range-field">
+                        <input type="text" id="age" name="age" > 
+                    <label for="">Age</label>
+                  </div>
+
+                  <div class="input-field">
+                    <p class="range-field">
+                        <input type="text" id="bp" name="bp" > 
+                    <label for="">Blood Pressure</label>
+                  </div>
+				  
+				   <div class="input-field">
+                    <p class="range-field">
+                        <input type="text" id="sg" name="sg" > 
+                    <label for="">Specific Gravity</label>
+                  </div>
+				  
+				   <div class="input-field">
+                    <p class="range-field">
+                        <input type="text" id="al" name="al" > 
+                    <label for="">Albumin</label>
+                  </div>
+				  <div class="input-field">
+                    <p class="range-field">
+                        <input type="text" id="su" name="suger" > 
+                    <label for="">Sugar</label>
+                  </div>
+				  
+                  <div class="input-field">
+                    <select id="role" name="ba">
+                      <option value="" disabled selected></option>
+                      <option value="1">Present</option>
+					<option value="0">Not-Present</option>
+					
+                     
+                    </select>
+                    <label for="role">Bacteria</label>
+                  </div>
+				  
+				  <div class="input-field">
+                   <p class="range-field">
+                        <input type="text" id="bu" name="bu" > 
+                    <label for="">Blood Urea</label>
+                  </div>
+				  
+				  <div class="input-field">
+                   <p class="range-field">
+                        <input type="text" id="sc" name="sc" > 
+                    <label for="">Serum Creatinine</label>
+                  </div>
+				  
+				  <div class="input-field">
+                   <p class="range-field">
+                        <input type="text" id="hemo" name="hemo" > 
+                    <label for="">Hemoglobin</label>
+                  </div>
+				  
+                  <div class="input-field">
+                    <select id="role" id="hype" name="hype">
+                      <option value="" disabled selected></option>
+                      <option value="1">Yes</option>
+                       <option value="0">No</option>
+                     
+                    </select>
+                    <label for="role">Hypertension</label>
+                  </div>
+				  
+				   <div class="input-field">
+                    <select id="role" name="dm">
+                      <option value="" disabled selected></option>
+                      <option value="1">Yes</option>
+                       <option value="0">No</option>
+                     
+                    </select>
+                    <label for="role">Diabetes Mellitus</label>
+                  </div>
+				   <div class="input-field">
+                    <select id="role" name="cad">
+                      <option value="" disabled selected></option>
+                      <option value="1">Yes</option>
+                       <option value="0">No</option>
+                     
+                    </select>
+                    <label for="role">Coronary Artery Disease</label>
+                  </div>
+				  
+				  <div class="input-field">
+                    <select id="role" name="app">
+                      <option value="" disabled selected></option>
+                      <option value="1">Good</option>
+                       <option value="0">Poor</option>
+                     
+                    </select>
+                    <label for="role">Appetite</label>
+                  </div>
+				  
+				  
+				  <div class="input-field">
+                    <select id="role" name="pe">
+                      <option value="" disabled selected></option>
+                      <option value="1">Yes</option>
+                       <option value="0">No</option>
+                     
+                    </select>
+                    <label for="role">Pedal Edema</label>
+                  </div>
+				  				   
+                  <div class="input-field">
+                    <select id="role" name="ane">
+                      <option value="" disabled selected></option>
+                      <option value="1">Yes</option>
+                       <option value="0">No</option>
+                     
+                    </select>
+                    <label for="role">Anemia</label>
+                  </div>
+				  
+
+                  <input type="submit" value="Predict" class="btn btn-small purple white-text waves-effect waves-dark">
+                  <input type="reset" value="Clear" class="btn btn-small purple white-text waves-effect waves-dark">
+                </form>
+              </div>
+            </div>
+             <div class="col s12 m4 offers">
+                     <div class="card-panel purple lighten-4 black-text text-darken-4 z-depth-0">
+					        
+                  
+                    <p>Age: {{ age }}</p>			   
+            <p>Blood Pressure: {{ bp }}</p>
+			<p>Specific Gravity: {{ sg }}</p>
+			<p>Albumin: {{ al }}</p>
+            <p>Sugar: {{ suger }}</p>
+           
+			<p>Bacteria: {{ ba }}</p>
+			
+			<p>Blood Urea: {{ bu }}</p>
+			<p>Serum Creatinine: {{ sc }}</p>
+			
+			<p>Hemoglobin: {{ hemo }}</p>
+			
+			<p>Hypertension: {{ hype }}</p>
+			<p>Diabetes Mellitus: {{ dm }}</p>
+			<p>Coronary Artery Disease: {{ cad }}</p>
+			<p>Appetite: {{ app }}</p>
+            <p>Pedal Edema: {{ pe }}</p>
+			<p>Anemia: {{ ane }}</p>
+              
+            </div>
+                     </div>
+                     
+          
+    
+            
+    
+             <div class="col s12 m4 offers">
+                <h5>Prediction</h5>
+                  <div class="collection" role="alert">
+         
+					 <p  class="collection-item active purple">Predicted class using Naive Bayes {{class2}}   Accuracy :{{score_nb}}   </p>
+
+					  
+		
+                </div> 
+				
+                 <div class="collection" role="alert">
+         
+					 <p  class="collection-item active purple">{{stage}} </p>
+					
+			
+					  
+		
+                </div> 
+                 <div class="card-image waves-effect waves-block waves-light">
+                    
+                
+					
+					  {% if age2 %}
+					   <h3> age factor</h3>
+					   {% else %}
+					   {% endif %}
+					   {% if sc2 %}
+					   <h3> serum creatine factor </h3>
+					   {% else %}
+					   {% endif %}
+					   {% if bp2 %}
+					   <h3> blood_pressure factor</h3>
+					   <p> Reduce sodium in your diet</br>Limit the amount of alchohol you drink</br>Eat healthy diet</p>
+					   
+					   	   <iframe width="450" height="200"
+src="https://www.youtube.com/embed/FfR0goXqIy0">
+</iframe>
+
+<h4><a href="https://www.mayoclinic.org/diseases-conditions/high-blood-pressure/in-depth/high-blood-pressure/art-20046974">For More Information </a></h4>
+					   
+					   {% else %}
+					   {% endif %}
+					   {% if suger2 %}
+					   <h4> Sugar factor</h3>
+					   <h5>Superfoods For Diabetes Control | Best Foods and Fruits for Diabetes patients</h4>
+					    <iframe width="350" height="200"
+src="https://www.youtube.com/embed/fd5-8Y_Uo1k">
+</iframe>
+
+<h4><a href="https://www.healthline.com/nutrition/15-ways-to-lower-blood-sugar">For More Information </a></h4>
+
+  
+
+					   {% else %}
+					   {% endif %}
+					   {% if hemo2 %}
+					   <h3> hemoglobin factor</h3>
+					   <h4> Increasing iron intake <br>Increasing folate intake <br> Maximizing iron absorption <br> Taking iron supplements</h4>
+					    <iframe width="350" height="200"
+src="https://www.youtube.com/embed/lSUc4h2vZE4">
+</iframe>
+
+
+<h4><a href="https://labtestsonline.org/tests/red-blood-cell-count-rbc">For More Information </a></h4>
+
+
+					   {% else %}
+					   {% endif %}
+					   {% if age2 %}
+					   <h3> Age  factor</h3>
+					   <p> Reduce sodium in your diet</br>Eat More Vegetables</br>Eat healthy diet</p>
+					   
+					   	   <iframe width="350" height="200"
+src="https://www.youtube.com/embed/DRomQhvuFWA">
+</iframe>
+
+<h4><a href="https://www.mayoclinic.org/diseases-conditions/high-blood-pressure/in-depth/high-blood-pressure/art-20046974">For More Information </a></h4>
+					 
+
+					   {% else %}
+					   {% endif %}
+                      					   
+                        {% if sc2 %}
+					  
+					   <p> Serum Creatine Factor</p>
+					   
+					   	   <iframe width="350" height="200"
+src="https://www.youtube.com/embed/pJ-r9hGa4ts">
+</iframe>
+
+<h4><a href="https://www.mayoclinic.org/diseases-conditions/high-blood-pressure/in-depth/high-blood-pressure/art-20046974">For More Information </a></h4>
+					 
+  {% else %}
+					   {% endif %}
+					
+                </div>
+                      					   
+					
+					
+                
+				<div>
+				   
+                   
+				  
+				  
+				
+			    </div>
+				
+              
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+      {% endblock%}
+
+      {% block scripts %}
+      {{super()}}
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+       <!-- Compiled and minified JavaScript -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+      <!-- <script type="text/javascript">
+           document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('select');
+          var instances = M.FormSelect.init(elems, options);
+        });
+      </script> -->
+      
+      <script>
+          // Or with jQuery
+      
+        $(document).ready(function(){
+          $('select').formSelect();
+        });
+      </script>
+      
+      {% endblock %}
